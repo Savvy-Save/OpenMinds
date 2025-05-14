@@ -1,0 +1,79 @@
+/**
+ * Styles for the Volunteer & Partnership Hub section (#volunteer-hub).
+ * Includes layout for the two columns (volunteer, partner) and partner list.
+ */
+
+/* Volunteer & Partnership Hub Section */
+#volunteer-hub {
+    background-color: #fff; /* Or var(--neutral-light) */
+    padding: 4rem 2rem;
+}
+
+/* Inherits .section-intro from global.css */
+
+.hub-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem; /* Space between columns */
+    max-width: 1200px;
+    margin: 2rem auto 0; /* Margin above the layout */
+    align-items: flex-start; /* Align columns to the top */
+}
+
+.hub-column {
+    flex: 1; /* Each column takes equal space */
+    background-color: var(--campaign-secondary-bg); /* Light background for columns */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.hub-column h3 {
+    font-family: var(--font-headings);
+    font-size: 1.6rem;
+    color: var(--campaign-primary);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--campaign-secondary-text);
+    padding-bottom: 0.5rem;
+}
+
+.hub-column p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--neutral-dark);
+    margin-bottom: 1.5rem;
+}
+
+.hub-column .cta-button {
+    /* Inherits base styles */
+    display: inline-block; /* Ensure it doesn't stretch full width unless intended */
+    margin-bottom: 1.5rem; /* Space below button */
+}
+
+.partner-column h4 {
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    color: var(--campaign-secondary-text);
+    margin-top: 2rem; /* Space above partner list */
+    margin-bottom: 0.75rem;
+}
+
+.partner-list {
+    list-style: disc; /* Use standard bullets */
+    padding-left: 1.5rem; /* Indentation */
+    margin: 0; /* Reset default margins */
+}
+
+.partner-list li {
+    font-size: 0.95rem;
+    color: var(--neutral-dark);
+    margin-bottom: 0.4rem;
+}
+
+/* Responsive adjustments for Hub Section */
+@media (max-width: 768px) {
+    .hub-layout {
+        flex-direction: column; /* Stack columns */
+        gap: 2rem; /* Adjust gap for stacked layout */
+    }
+}

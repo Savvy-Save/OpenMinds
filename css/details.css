@@ -1,0 +1,52 @@
+/**
+ * Styles for the Details section (#details).
+ * Displays key information points in a grid layout.
+ */
+
+/* Details Section */
+#details {
+    padding: 4rem 2rem; /* Ensure padding is consistent */
+    background-color: #fff; /* Example background */
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detail-item {
+    background-color: #fff; /* Or var(--campaign-secondary-bg) */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--campaign-primary); /* Accent border */
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.detail-item h4 {
+    font-family: var(--font-headings);
+    color: var(--campaign-primary); /* Use campaign primary */
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem; /* Adjusted size */
+}
+
+.detail-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--neutral-dark);
+}
+
+/* Responsive adjustments for Details Section */
+@media (max-width: 480px) {
+    .details-grid {
+        grid-template-columns: 1fr; /* Stack items */
+    }
+}

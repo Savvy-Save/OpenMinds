@@ -1,0 +1,225 @@
+/* Downloadable Resources Section */
+#downloadable-resources {
+    background-color: #f9f9f9; /* Light grey background for the section */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#downloadable-resources h2 {
+    color: var(--primary-color); /* Use primary color from global.css */
+    margin-bottom: 15px;
+}
+
+#downloadable-resources .section-intro {
+    color: var(--text-color-secondary); /* Use secondary text color */
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.resource-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Spacing between cards */
+}
+
+.resource-card {
+    background-color: #ffffff; /* White background for cards */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 30px;
+    width: 100%;
+    max-width: 350px; /* Max width for each card */
+    text-align: left; /* Align text to the left within cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.resource-card-icon {
+    width: 60px; /* Size of the icon */
+    height: auto;
+    margin-bottom: 20px;
+    display: block; /* Center icon if text-align was center */
+    margin-left: 0; /* Reset margin if text-align was center */
+}
+
+.resource-card h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.resource-card p {
+    color: var(--text-color);
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    min-height: 100px; /* Add min-height to paragraph to help equalize card heights before button */
+}
+
+.resource-card .open-modal-button {
+    background-color: #F57C00; /* Explicit Orange for card buttons */
+    color: white !important; /* Ensure text is white */
+    padding: 10px 20px; /* Adjusted padding for consistency */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-flex; /* Use flex to center content */
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    height: 48px; /* Explicit height */
+    min-height: 48px; /* Explicit min-height */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: center; /* Ensure text is centered */
+    width: auto; /* Allow button to size to content + padding */
+    min-width: 180px; /* Ensure a minimum width for smaller texts */
+}
+
+.resource-card .open-modal-button:hover {
+    background-color: #E65100; /* Darker Orange for card buttons */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity for overlay */
+    padding-top: 60px; /* Location of the box */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Max width */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    text-align: left;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+.modal-disclaimer {
+    background-color: #fffbe6; /* Light yellow for disclaimer box */
+    border: 1px solid #ffe58f;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.modal-disclaimer h4 {
+    margin-top: 0;
+    color: #d46b08; /* Orange-brown for disclaimer heading */
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.modal-disclaimer p {
+    margin-bottom: 0.8em;
+    line-height: 1.5;
+    color: #595959; /* Dark grey for disclaimer text */
+}
+.modal-disclaimer p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-download-button {
+    background-color: #F57C00; /* Explicit Orange for modal buttons */
+    color: white !important; /* Ensure text is white */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    border: none; /* Ensure no border if it's an <a> tag styled as button */
+}
+
+.modal-download-button:hover {
+    background-color: #E65100; /* Darker Orange for modal buttons */
+}
+
+/* Responsive adjustments for resource cards if needed */
+@media (max-width: 768px) {
+    .resource-card {
+        max-width: 90%; /* Allow cards to take more width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #downloadable-resources {
+        padding: 40px 15px;
+    }
+    .resource-card {
+        padding: 20px;
+    }
+    .resource-card h3 {
+        font-size: 1.2em;
+    }
+    .resource-card p {
+        font-size: 0.9em;
+    }
+    .resource-card .cta-button,
+    .resource-card .open-modal-button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+    .modal-content h3 {
+        font-size: 1.4em;
+    }
+    .modal-disclaimer {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+    .modal-download-button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+}

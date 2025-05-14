@@ -1,0 +1,107 @@
+/**
+ * Styles for the Success Stories section (#success-stories).
+ * Includes layout for testimonial cards and the call-to-action.
+ */
+
+/* Success Stories Section */
+#success-stories {
+    background-color: var(--neutral-light); /* Or #fff */
+    padding: 4rem 2rem;
+}
+
+/* Inherits .section-intro from global.css */
+
+.story-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto; /* Add bottom margin before CTA */
+}
+
+.story-card {
+    background-color: #fff; /* White background for cards */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-left: 5px solid var(--campaign-secondary-text); /* Accent border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.story-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Circular avatar */
+    object-fit: cover; /* Ensure image covers the circle */
+    margin-bottom: 1rem;
+    border: 3px solid var(--campaign-secondary-bg); /* Light border */
+}
+
+.story-card h4 {
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    color: var(--campaign-primary);
+    margin-bottom: 0.5rem;
+}
+
+.story-quote {
+    font-size: 1rem;
+    color: var(--neutral-dark);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 0; /* Remove default bottom margin */
+    position: relative;
+    padding: 0 1rem; /* Add padding for quote marks */
+    flex-grow: 1; /* Allow quote to take space */
+}
+
+.story-quote::before,
+.story-quote::after {
+    content: '"';
+    font-size: 2rem;
+    color: var(--campaign-secondary-text);
+    position: absolute;
+    line-height: 1;
+}
+
+.story-quote::before {
+    top: -0.2em;
+    left: -0.2em;
+}
+
+.story-quote::after {
+    bottom: -0.4em;
+    right: -0.2em;
+}
+
+.share-story-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--campaign-secondary-bg);
+    border-radius: 8px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.share-story-cta p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--neutral-dark);
+    margin-bottom: 1rem;
+}
+
+.share-story-cta .cta-button {
+    /* Inherits base .cta-button styles */
+    font-size: 1.1rem;
+}

@@ -1,0 +1,268 @@
+/**
+ * Global CSS Styles for Literacy Champions Website
+ * -------------------------------------------------
+ * Includes:
+ * - CSS Variables (Colors, Fonts, Shadows)
+ * - Basic Reset
+ * - Global Accessibility Styles (Focus)
+ * - Body Defaults
+ * - Skip Link Style
+ * - General Section, Heading, Paragraph, List Styles
+ * - Reusable Utility Classes (.section-intro, .cta-button)
+ */
+
+/* Literacy Campaign Color Palette - Accessibility Focused */
+:root {
+    --campaign-primary: #005A9C; /* Dark Blue - Trust, Knowledge */
+    --campaign-secondary-bg: #E0F7FA; /* Very Light Cyan/Blue - for backgrounds */
+    --campaign-secondary-text: #00796B; /* Teal - for text like H3s, or accents */
+    --campaign-accent: #E65100; /* Darker Orange - for CTAs, WCAG AA on white text */
+
+    --neutral-light: #f8f9fa; /* Slightly brighter light gray for backgrounds */
+    --neutral-dark: #212529; /* Slightly softer dark gray for text */
+    --text-light: #ffffff;
+
+    --font-primary: 'Arial', sans-serif;
+    --font-headings: 'Georgia', serif;
+    --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+}
+
+/* Global Accessibility Focus Styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid var(--campaign-accent, #E65100);
+  outline-offset: 2px;
+  box-shadow: 0 0 5px var(--campaign-accent, #E65100);
+}
+
+/* Fallback focus styles (can be refined per component) */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:not([tabindex="-1"]):focus {
+  /* Rely on specific component focus styles or :focus-visible */
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--neutral-dark);
+    background-color: var(--neutral-light);
+    font-size: 17px;
+}
+
+/* Skip Link Styling */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--campaign-accent);
+    color: var(--text-light);
+    padding: 10px 15px;
+    z-index: 10000;
+    text-decoration: none;
+    border-radius: 0 0 5px 0;
+    box-shadow: var(--shadow-light);
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* General Section Styling */
+section {
+    padding: 4rem 2rem;
+    /* min-height: 80vh; /* Removed from global - apply per section if needed */
+    border-bottom: 1px solid #ddd;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* General Heading Styles */
+section h2 {
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    color: var(--campaign-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+section h3 {
+    font-family: var(--font-headings);
+    font-size: 1.8rem;
+    color: var(--campaign-secondary-text);
+    margin-bottom: 1rem;
+    /* Note: Specific H3 styles exist in components, might need adjustments */
+}
+
+section h4 {
+     /* General H4 style if needed, often component-specific */
+    font-family: var(--font-headings);
+    font-size: 1.4rem; /* Example size */
+    color: var(--campaign-primary); /* Example color */
+    margin-bottom: 0.75rem; /* Example margin */
+}
+
+/* General Paragraph & List Styles */
+p {
+    margin-bottom: 1rem; /* Default paragraph spacing */
+}
+
+ul, ol {
+    margin-bottom: 1rem; /* Default list spacing */
+    padding-left: 1.5rem; /* Default indentation */
+}
+
+/* General Intro Paragraph Style (used in multiple sections) */
+.section-intro {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(--neutral-dark);
+}
+
+
+/* Call to Action Button (Base Style) */
+.cta-button {
+    display: inline-block;
+    background-color: var(--campaign-accent);
+    color: var(--text-light);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-light);
+    border: none; /* Ensure buttons don't have default borders */
+    cursor: pointer; /* Ensure button-like cursor */
+    text-align: center;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #AF4000; /* Darker shade */
+    transform: translateY(-2px);
+    outline: 2px solid transparent; /* Handled by :focus-visible */
+    box-shadow: 0 0 0 3px var(--neutral-dark); /* Clearer focus ring */
+}
+
+/* =========================
+   Global Responsive Styles
+============================== */
+
+@media (max-width: 992px) { /* Medium devices (tablets, less than 992px) */
+    body {
+        font-size: 16px; /* Slightly smaller base font */
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    section h3 {
+        font-size: 1.6rem;
+    }
+
+    section h4 {
+        font-size: 1.25rem;
+    }
+
+    .section-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        max-width: 90%;
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.3rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) { /* Small devices (landscape phones, less than 768px) */
+    section {
+        padding: 2.5rem 1rem;
+    }
+
+    section h2 {
+        font-size: 2rem; /* Further reduce H2 size */
+    }
+
+    section h3 {
+        font-size: 1.5rem; /* Further reduce H3 size */
+    }
+    
+    section h4 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 576px) { /* Extra small devices (portrait phones, less than 576px) */
+    body {
+        font-size: 15px; /* Smallest base font */
+    }
+
+    section {
+        padding: 2rem 1rem; /* Minimal padding for small screens */
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    section h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    section h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .section-intro {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.1rem;
+        font-size: 0.9rem;
+        width: auto; /* Allow button to shrink more if text is short */
+        min-width: 0; /* Remove min-width if it causes overflow */
+    }
+
+    ul, ol {
+        padding-left: 1.2rem; /* Reduce list indentation */
+    }
+}

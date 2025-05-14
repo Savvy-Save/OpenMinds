@@ -1,0 +1,45 @@
+/**
+ * Styles for the Reading Pledge section (#reading-pledge).
+ * A call-to-action section encouraging user commitment.
+ */
+
+/* Reading Pledge Section */
+#reading-pledge {
+    background-color: var(--campaign-primary); /* Use primary color for emphasis */
+    color: var(--text-light); /* Light text on dark background */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#reading-pledge h2 {
+    color: var(--text-light); /* Override default h2 color */
+}
+
+#reading-pledge .section-intro {
+    color: var(--neutral-light); /* Lighter text for intro */
+    margin-bottom: 2rem;
+}
+
+.pledge-action {
+    margin-top: 1.5rem;
+}
+
+.pledge-button {
+    /* Inherits .cta-button styles */
+    background-color: var(--campaign-accent); /* Ensure accent color stands out */
+    font-size: 1.2rem; /* Make button slightly larger */
+    padding: 1rem 2rem;
+}
+
+.pledge-button:hover,
+.pledge-button:focus {
+     background-color: #AF4000; /* Darker accent */
+     box-shadow: 0 0 0 3px var(--text-light); /* Focus ring for light text */
+}
+
+.pledge-info {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: var(--neutral-light);
+    opacity: 0.9;
+}

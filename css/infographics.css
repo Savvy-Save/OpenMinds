@@ -1,0 +1,121 @@
+/**
+ * Styles for the Infographic sections (#infographic1, #infographic2).
+ * Covers both the two-column layout and the centered image layout.
+ */
+
+/* Infographic Sections General */
+#infographic1, #infographic2 {
+    /* Common styles if any, otherwise specific below */
+    padding: 4rem 2rem; /* Ensure padding is consistent */
+}
+
+/* Infographic 1 Layout (Flexbox) */
+.infographic-layout {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 2rem; /* Space between image and text */
+    margin-bottom: 2rem;
+    max-width: 1200px; /* Limit width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-column {
+    flex: 1 1 45%; /* Allow image column to take up to 45% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-column img {
+    max-width: 100%;
+    max-height: 70vh; /* Ensure image is largely visible */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-column img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.text-column {
+    flex: 1 1 55%; /* Allow text column to take up to 55% */
+    text-align: left;
+}
+
+.text-column h3 {
+    margin-top: 0; /* Remove default top margin if any */
+    color: var(--campaign-secondary-text); /* Ensure consistent H3 color */
+}
+
+.text-column p {
+    margin-bottom: 1rem;
+}
+
+/* Infographic 2 Layout (Centered Image + Description) */
+.infographic-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.infographic-container img {
+    max-width: 80%; /* Constrain image width */
+    display: block; /* Allows margin auto */
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infographic-container img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.description { /* Used by Infographic 2 */
+    max-width: 800px;
+    margin: 2rem auto 0; /* Added top margin */
+    text-align: left;
+}
+
+.description h3 {
+    font-family: var(--font-headings);
+    font-size: 1.8rem;
+    color: var(--campaign-secondary-text);
+    margin-bottom: 1rem;
+}
+
+.description p {
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments for Infographics */
+@media (max-width: 768px) {
+    .infographic-layout {
+        flex-direction: column; /* Stack image and text */
+    }
+
+    .image-column,
+    .text-column {
+        flex-basis: 100%; /* Each column takes full width */
+        text-align: center; /* Center text when stacked */
+    }
+
+    .image-column img {
+        max-height: 50vh; /* Adjust max height */
+    }
+
+    .infographic-container img {
+        max-width: 95%; /* Allow image to be wider on mobile */
+    }
+
+    .description {
+        text-align: center; /* Center description text */
+    }
+}

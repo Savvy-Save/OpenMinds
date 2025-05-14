@@ -1,0 +1,21 @@
+#cube-container {
+    width: 100%; /* Or a fixed width like 500px */
+    max-width: 600px; /* Optional: to prevent it from becoming too large on wide screens */
+    height: 400px;  /* Adjust height as needed */
+    margin: 20px auto; /* Center the container and add some margin */
+    border: 1px solid #ccc;
+    cursor: grab; /* Indicate it's interactive */
+    touch-action: none; /* Recommended for pointer events on touch devices */
+}
+
+#cube-container:active {
+    cursor: grabbing;
+}
+
+/* Optional: Add a title or instructions */
+.cube-title {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}

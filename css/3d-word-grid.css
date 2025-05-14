@@ -1,0 +1,27 @@
+/* Styles for the 3D Word Grid Game Container */
+#cube-container { /* Reusing the ID from the previous cube implementation */
+    width: 100%; 
+    max-width: 700px; /* Slightly larger for a grid game */
+    height: 500px;  /* Adjust height as needed */
+    margin: 20px auto; 
+    border: 1px solid #ccc;
+    position: relative; /* Needed for absolute positioning of UI elements within */
+    overflow: hidden; /* To contain the canvas and UI */
+    touch-action: none; 
+}
+
+/* Optional: Style for the game title if not already handled by global styles */
+.cube-title { /* Reusing class from previous implementation */
+    text-align: center;
+    font-size: 1.5em; /* Slightly larger title */
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* General section intro styling if not handled globally */
+.section-intro {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #555;
+}

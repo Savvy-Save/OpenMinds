@@ -1,0 +1,78 @@
+/**
+ * Styles for the Literacy Milestones Checklist section (#literacy-milestones-checklist).
+ * Includes the form container, categories, list items, checkboxes, and feedback area.
+ */
+
+/* Literacy Milestones Checklist Section */
+#literacy-milestones-checklist {
+    background-color: #fff; /* Or var(--campaign-secondary-bg) */
+    padding: 4rem 2rem;
+}
+
+/* Inherits .section-intro from global.css */
+
+#literacy-milestones-checklist form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--campaign-secondary-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.milestone-category {
+    margin-bottom: 2rem;
+}
+
+.milestone-category h3 {
+    font-family: var(--font-headings);
+    font-size: 1.5rem; /* Slightly smaller than section H2 */
+    color: var(--campaign-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--campaign-secondary-text);
+}
+
+#literacy-milestones-checklist ul {
+    list-style: none;
+    padding-left: 0; /* Override default list padding */
+    margin-bottom: 0; /* Reset bottom margin if needed */
+}
+
+#literacy-milestones-checklist li {
+    margin-bottom: 0.8rem;
+    display: flex; /* Align checkbox and label */
+    align-items: flex-start; /* Align items to the top */
+}
+
+#literacy-milestones-checklist input[type="checkbox"] {
+    margin-right: 0.8rem;
+    margin-top: 0.2rem; /* Align checkbox with the first line */
+    flex-shrink: 0; /* Prevent checkbox shrinking */
+    width: 1.2em; /* Custom size */
+    height: 1.2em;
+    accent-color: var(--campaign-accent); /* Style checkmark color */
+}
+
+#literacy-milestones-checklist label {
+    font-size: 1rem;
+    color: var(--neutral-dark);
+    line-height: 1.5;
+}
+
+#milestoneCheckButton { /* Uses .cta-button styles by default */
+    display: block;
+    margin: 1.5rem auto 0; /* Center button */
+}
+
+.milestone-feedback-area {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px dashed var(--campaign-secondary-text);
+    color: var(--neutral-dark);
+    font-style: italic;
+    min-height: 50px; /* Placeholder height */
+    text-align: center;
+}

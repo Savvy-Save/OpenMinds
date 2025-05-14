@@ -1,0 +1,17 @@
+/**
+ * Styles for the page footer.
+ */
+
+/* Footer */
+footer {
+    background-color: var(--neutral-dark);
+    color: var(--neutral-light);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--campaign-primary); /* Add a top border */
+}
+
+footer p {
+    margin-bottom: 0; /* Remove default paragraph margin */
+}

@@ -1,0 +1,71 @@
+/**
+ * Styles for the Contact section (#contact).
+ * Includes the contact form layout and input styling.
+ */
+
+/* Contact Section */
+#contact {
+    background-color: var(--campaign-secondary-bg); /* Use campaign secondary bg */
+    padding: 4rem 2rem;
+}
+
+#contact h2 {
+    /* Inherits general h2 style */
+}
+
+#contact p { /* Intro paragraph */
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem; /* Space before form */
+}
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto; /* Center form */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contact form div { /* Wrapper for label + input */
+    margin-bottom: 1rem;
+}
+
+#contact form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--neutral-dark);
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    background-color: #fff; /* Ensure good contrast */
+}
+
+#contact input[type="text"]:focus,
+#contact input[type="email"]:focus,
+#contact textarea:focus {
+    outline: 2px solid transparent;
+    border-color: var(--campaign-primary); /* Use campaign primary for focus */
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.4); /* Adjusted shadow */
+}
+
+#contact textarea {
+    resize: vertical;
+    min-height: 120px; /* Ensure decent height */
+}
+
+#contact button[type="submit"] {
+    align-self: center; /* Center the button */
+    /* Inherits .cta-button styles */
+}

@@ -1,0 +1,57 @@
+/**
+ * Styles for the Survey section (#survey).
+ * Includes the call-to-action button for the external survey.
+ */
+
+/* Survey Section */
+#survey {
+    background-color: #ffffff; /* Or var(--neutral-light) */
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#survey h2 {
+    color: var(--campaign-primary);
+    margin-bottom: 1rem;
+}
+
+#survey p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--neutral-dark);
+}
+
+.survey-button {
+    display: inline-block;
+    background-color: var(--campaign-secondary-text); /* Use secondary text color */
+    color: var(--text-light); /* Light text */
+    padding: 0.9rem 1.8rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-light);
+    border: 2px solid transparent; /* For focus */
+}
+
+.survey-button:hover,
+.survey-button:focus {
+    background-color: #004D40; /* Darker shade */
+    color: var(--text-light);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-medium);
+    outline: 2px solid transparent;
+    border-color: #004D40; /* Focus indicator */
+}
+
+/* Responsive adjustments for Survey Button */
+@media (max-width: 480px) {
+    .survey-button {
+        padding: 0.8rem 1.3rem;
+        font-size: 1rem;
+    }
+}

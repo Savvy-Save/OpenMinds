@@ -1,0 +1,204 @@
+/**
+ * Styles for the Book Recommendation Slideshow section (#books-recommendation).
+ * Includes container, slides, content layout, controls (prev/next, dots).
+ */
+
+/* Book Recommendation Slideshow Section */
+#books-recommendation {
+    background-color: var(--campaign-secondary-bg); /* Use campaign secondary bg */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* Inherits .section-intro from global.css */
+
+.slideshow-container {
+    max-width: 900px; /* Max width of the slideshow */
+    position: relative;
+    margin: auto;
+    background-color: #fff; /* Background for the slide area */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Hide the images by default */
+.slide {
+    display: none; /* Managed by JS */
+    padding: 20px;
+    min-height: 480px; /* Ensure a consistent height */
+    box-sizing: border-box;
+}
+
+.slide.active {
+    display: block; /* Or 'flex' if .slide-content uses flex */
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: row; /* Default for larger screens */
+    gap: 2rem;
+    align-items: center;
+    text-align: left;
+}
+
+.book-image-container {
+    flex: 0 0 300px; /* Fixed width for image container */
+    text-align: center;
+}
+
+.book-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.book-details {
+    flex: 1;
+}
+
+.book-details h3 {
+    font-size: 1.7rem;
+    color: var(--campaign-primary); /* Use campaign primary */
+    margin-bottom: 0.75rem;
+}
+
+.book-details p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.learn-more-book {
+    display: inline-block;
+    background-color: var(--campaign-accent); /* Use campaign accent */
+    color: var(--text-light);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn-more-book:hover,
+.learn-more-book:focus {
+    background-color: #AF4000; /* Darker shade */
+    transform: translateY(-2px);
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2px var(--text-light), 0 0 0 4px var(--campaign-accent); /* Clearer focus */
+    color: var(--text-light);
+}
+
+/* Next & previous buttons */
+.prev-slide, .next-slide {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -30px; /* Adjust based on button size */
+    color: var(--neutral-dark);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.next-slide {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev-slide {
+    left: 0;
+}
+
+.prev-slide:hover, .next-slide:hover,
+.prev-slide:focus, .next-slide:focus {
+    background-color: var(--campaign-secondary-text);
+    color: var(--text-light);
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2px var(--campaign-accent); /* Focus ring */
+}
+
+/* Dots/bullets/indicators */
+.slide-indicators {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    border: none;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.dot:focus {
+    outline: 2px solid var(--campaign-accent); /* Clear focus indicator */
+    outline-offset: 2px;
+}
+
+.active-dot, .dot:hover {
+    background-color: var(--campaign-primary); /* Use campaign primary */
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 0.8s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Responsive adjustments for slideshow */
+@media (max-width: 768px) {
+    .slide-content {
+        flex-direction: column; /* Stack image and text */
+        text-align: center;
+    }
+    .book-image-container {
+        flex: 0 0 auto; /* Reset flex basis */
+        margin-bottom: 1.5rem;
+        max-width: 250px; /* Smaller image on mobile */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .book-details {
+        text-align: center;
+    }
+    .prev-slide, .next-slide {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .slide {
+        min-height: auto; /* Allow height to adjust */
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-image-container {
+        max-width: 200px;
+    }
+    .book-details h3 {
+        font-size: 1.5rem;
+    }
+    .learn-more-book {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}

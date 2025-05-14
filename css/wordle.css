@@ -1,0 +1,298 @@
+#daily-wordle-challenge {
+    font-family: Arial, sans-serif;
+    max-width: 500px; /* Adjust as needed */
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.wordle-word-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+}
+
+.wordle-word-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.wordle-word-section h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.wordle-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Assuming 5-letter words */
+    grid-template-rows: repeat(6, 1fr);    /* Max 6 attempts */
+    gap: 5px;
+    margin-bottom: 20px;
+    max-width: 350px; /* Adjust based on tile size */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wordle-tile {
+    width: 60px;  /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    border: 2px solid #d3d6da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #fff;
+    box-sizing: border-box; /* Include border in size */
+    transition: transform 0.2s ease; /* For subtle interaction feedback */
+}
+
+/* Tile States */
+.wordle-tile.correct {
+    background-color: #6aaa64; /* Green */
+    color: white;
+    border-color: #6aaa64;
+}
+
+.wordle-tile.present {
+    background-color: #c9b458; /* Yellow */
+    color: white;
+    border-color: #c9b458;
+}
+
+.wordle-tile.absent {
+    background-color: #787c7e; /* Grey */
+    color: white;
+    border-color: #787c7e;
+}
+
+/* Tile Reveal Animation */
+@keyframes revealTile {
+    0% { transform: scaleY(1); }
+    50% { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
+}
+
+.wordle-tile.reveal {
+    animation: revealTile 0.5s ease forwards;
+}
+
+
+.wordle-input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.wordle-input-area input[type="text"] {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px; /* Adjust as needed */
+    text-transform: uppercase; /* Often helps with Wordle */
+}
+
+.wordle-input-area button {
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.wordle-input-area button:hover {
+    background-color: #45a049;
+}
+
+.wordle-input-area input:disabled,
+.wordle-input-area button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.wordle-message {
+    text-align: center;
+    min-height: 1.2em; /* Reserve space for messages */
+    font-weight: bold;
+    color: #d9534f; /* Reddish for errors/info */
+}
+
+.wordle-message:empty {
+    min-height: 1.2em;
+}
+
+#wordle-completion-message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #5cb85c; /* Green for success */
+}
+
+/* Hide sections that are not active yet */
+.wordle-word-section:not(:first-child) {
+    /* Initially hidden by JS, this is a fallback/reinforcement */
+}
+
+/* Removed opacity for completed sections as requested */
+.wordle-word-section.completed {
+    /* No opacity change */
+}
+
+#wordle-countdown-timer {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #555; /* Muted text color for "New words in:" */
+}
+
+#wordle-timer-display {
+    font-weight: bold;
+    color: #333; /* Darker color for the actual time */
+}
+
+/* Styles for Word Details Section */
+.word-details {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #e9eef2; /* A slightly different background */
+    border: 1px solid #d1d9e0;
+    border-radius: 6px;
+    text-align: left; 
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.word-details h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #2c3e50; /* Darker heading color */
+    font-size: 1.1rem;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 8px;
+}
+
+.word-details .word-highlight {
+    color: #2980b9; /* A primary blue, adjust to theme */
+    font-weight: bold;
+}
+
+.word-details p {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.word-details strong { 
+    color: #555;
+    margin-right: 5px;
+}
+
+.word-details ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+.word-details ul li {
+    margin-bottom: 6px;
+}
+
+/* Responsive Design for Wordle */
+@media (max-width: 600px) { /* Adjustments for smaller screens, e.g., tablets and large phones */
+    #daily-wordle-challenge {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .wordle-grid {
+        max-width: 320px; /* Smaller grid */
+        gap: 4px;
+    }
+
+    .wordle-tile {
+        width: 50px;  /* Smaller tiles */
+        height: 50px; /* Smaller tiles */
+        font-size: 1.75rem; /* Smaller font in tiles */
+        border-width: 1px;
+    }
+
+    .wordle-input-area input[type="text"] {
+        width: 150px; /* Smaller input field */
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    .wordle-input-area button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) { /* Further adjustments for mobile phones */
+    #daily-wordle-challenge {
+        margin: 10px auto;
+    }
+    
+    .wordle-grid {
+        max-width: 100%; /* Allow grid to take full available width within its container */
+        gap: 3px;
+         /* Adjust tile size using viewport units or ensure parent max-width controls it */
+    }
+
+    .wordle-tile {
+        /* Using calc or viewport units for tiles can be complex with grid. 
+           Instead, we ensure the grid itself is responsive and tiles fill their grid cells.
+           Let's try making tiles more flexible if the grid width is 100% */
+        width: 100%; /* Tiles will take up cell width */
+        padding-bottom: 100%; /* Creates a square tile based on width */
+        height: 0; /* Required for padding-bottom trick to work for height */
+        font-size: 1.5rem; /* Further reduce font size */
+        /* Ensure content is still centered with padding-bottom trick */
+        position: relative; 
+    }
+    
+    /* Helper to center content in square tiles made with padding-bottom */
+    .wordle-tile > * { 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .wordle-input-area {
+        flex-direction: column; /* Stack input and button on very small screens */
+        gap: 8px;
+    }
+
+    .wordle-input-area input[type="text"] {
+        width: 100%; /* Full width input */
+        max-width: 280px; /* But not too wide */
+    }
+
+    .wordle-input-area button {
+        width: 100%;
+        max-width: 280px; /* Match input width */
+    }
+
+    .word-details {
+        font-size: 0.85rem;
+    }
+    .word-details h4 {
+        font-size: 1rem;
+    }
+}
