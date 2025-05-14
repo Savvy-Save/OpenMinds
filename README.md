@@ -39,10 +39,37 @@ To run the website locally:
 
 ## Deployment
 
-When deploying the website:
+### Deploying to Netlify
 
-1. Make sure to set up the environment variables on your hosting platform.
-2. Do not include the `js/env.js` file in your deployment.
+This project is configured for easy deployment to Netlify:
+
+1. Push your code to GitHub (without the sensitive `js/env.js` file)
+2. Connect your GitHub repository to Netlify
+3. In the Netlify dashboard, go to Site settings > Build & deploy > Environment variables
+4. Add the following environment variables with your Firebase configuration values:
+   - `FIREBASE_API_KEY`
+   - `FIREBASE_AUTH_DOMAIN`
+   - `FIREBASE_DATABASE_URL`
+   - `FIREBASE_PROJECT_ID`
+   - `FIREBASE_STORAGE_BUCKET`
+   - `FIREBASE_MESSAGING_SENDER_ID`
+   - `FIREBASE_APP_ID`
+   - `FIREBASE_MEASUREMENT_ID`
+5. Deploy your site
+
+During the build process, Netlify will run the `build-env.js` script which generates the `js/env.js` file using the environment variables you set in the Netlify dashboard.
+
+### Deploying to GitHub Pages
+
+For GitHub Pages deployment:
+
+1. Create a new branch for GitHub Pages deployment: `git checkout -b gh-pages`
+2. Create a production version of `js/env.js` with your actual Firebase configuration
+3. Add this file to the gh-pages branch: `git add js/env.js`
+4. Commit and push this branch to GitHub: `git commit -m "Add production env.js for GitHub Pages" && git push origin gh-pages`
+5. In your GitHub repository settings, set up GitHub Pages to use the gh-pages branch
+
+**Note:** Since GitHub Pages doesn't support environment variables or build processes, you'll need to include your Firebase configuration directly in the code. Be cautious about this approach and consider using Netlify instead for better security.
 
 ## License
 

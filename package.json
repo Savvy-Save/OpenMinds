@@ -1,0 +1,24 @@
+{
+  "name": "uplite",
+  "version": "1.0.0",
+  "description": "UpLite - Empowering Young Readers",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build-env.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Savvy-Save/OpenMinds.git"
+  },
+  "keywords": [
+    "literacy",
+    "education",
+    "reading"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Savvy-Save/OpenMinds/issues"
+  },
+  "homepage": "https://github.com/Savvy-Save/OpenMinds#readme"
+}
